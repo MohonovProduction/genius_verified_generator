@@ -16,8 +16,19 @@
 
 :root {
   box-sizing: content-box;
-  font-family: Programme, Arial, sans-serif;
-  font-feature-settings: "ss07", "ss08", "ss11", "ss12", "ss14", "ss15", "ss16", "ss18", "ss19", "ss20", "ss21";
+  --font-family: Programme, Arial, sans-serif;
+  --font-feature-settings: "ss07", "ss08", "ss11", "ss12", "ss14", "ss15", "ss16", "ss18", "ss19", "ss20", "ss21";
+  font-family: var(--font-family);
+  font-feature-settings: var(--font-feature-settings);
+  font-size: 1.2rem;
+
+  --corner: 60;
+
+  --lemon: hsl(60, 100%, 70%);
+  --dark: hsl(0, 0%, 13%);
+  --white: hsl(0, 0%, 100%);
+
+  color: var(--dark);
 }
 
 *,

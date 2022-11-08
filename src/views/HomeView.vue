@@ -1,10 +1,36 @@
 <template>
-  <h1>HHHHHH VIERFIED &</h1>
+  <div class="wrapper">
+    <form
+      class="form"
+      @submit.prevent
+    >
+     <m-input
+      name="name"
+      v-model="name"
+     >
+
+     </m-input>
+      <label for="question" class="label form__label">
+        <input id="question" type="text" class="input form__input">
+      </label>
+    </form>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'HomeView',
-  components: {}
+  components: {},
+  data() {
+    return {
+      name: null,
+      question: null,
+      photo: null
+    }
+  }
 }
 </script>
+
+<style scoped>
+
+</style>
