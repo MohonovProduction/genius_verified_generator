@@ -3,7 +3,6 @@
 </template>
 
 <style>
-
 @font-face {
   font-family: 'Programme';
   src: local('Programme Regular'), local('Programme-Regular'),
@@ -15,7 +14,7 @@
 }
 
 :root {
-  box-sizing: content-box;
+  box-sizing: border-box;
   --font-family: Programme, Arial, sans-serif;
   --font-feature-settings: "ss07", "ss08", "ss11", "ss12", "ss14", "ss15", "ss16", "ss18", "ss19", "ss20", "ss21";
   font-family: var(--font-family);
@@ -41,5 +40,4 @@
   background: none;
   box-sizing: inherit;
 }
-
 </style>

@@ -1,10 +1,15 @@
 <template>
-
+  <article>
+    {{ $route.params }}
+  </article>
 </template>
 
 <script>
 export default {
-  name: "VideoView"
+  name: "VideoView",
+  created() {
+    console.log(this.$route.params)
+  }
 }
 </script>
 
