@@ -19,12 +19,12 @@
   --font-feature-settings: "ss07", "ss08", "ss11", "ss12", "ss14", "ss15", "ss16", "ss18", "ss19", "ss20", "ss21";
   font-family: var(--font-family);
   font-feature-settings: var(--font-feature-settings);
-  font-size: 1.2rem;
+  font-size: calc(.7rem + 1vw);
 
   --corner: 60;
 
   --lemon: hsl(60, 100%, 70%);
-  --dark: hsl(0, 0%, 13%);
+  --dark: hsl(0, 0%, 0%);
   --white: hsl(0, 0%, 100%);
 
   color: var(--dark);
@@ -40,4 +40,15 @@
   background: none;
   box-sizing: inherit;
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  opacity: 1;
+  transition: opacity .3s ease-in;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 </style>
