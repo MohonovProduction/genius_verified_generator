@@ -18,26 +18,34 @@
     </div>
 
     <div class="menu_wrapper">
-      <menu
+      <article
         v-if="menu.showBefore"
         class="menu menu_before"
       >
-        <m-button @click="play">ᐅ Play</m-button>
         <article class="menu__modal" v-if="isMobile">
           You can rotate your device for better experience
         </article>
-      </menu>
+        <div class="menu__button_group">
+          <m-button @click="play">ᐅ Play</m-button>
+          <m-button @click="copyLink">Copy link</m-button>
+        </div>
+      </article>
 
-      <menu
+      <article
         v-if="menu.showAfter"
         class="menu menu_after"
       >
-        <m-button @click="repeat">Repeat</m-button>
+        <m-button @click="repeat">⭯ Repeat</m-button>
         <m-button @click="edit">Edit</m-button>
         <m-button @click="create">Create</m-button>
-      </menu>
+        <m-button @click="copyLink">Copy link</m-button>
+      </article>
     </div>
   </div>
+
+  <textarea id="link">
+    {{ link }}
+  </textarea>
 
   <audio @canplaythrough="audio.ready = true" id="player">
     <source src="../assets/music/genius_verified.mp3" type="audio/mp3">
@@ -105,6 +113,16 @@ export default {
     create() {
       router.push('/')
     },
+    copyLink() {
+      const textarea = document.querySelector('#link')
+
+      textarea.focus()
+      textarea.select()
+      textarea.setSelectionRange(0, 99999)
+
+      navigator.clipboard.writeText(textarea.textContent)
+      document.execCommand('copy')
+    }
   },
   computed: {
     name() {
@@ -115,14 +133,15 @@ export default {
     },
     isMobile() {
       return window.innerHeight > window.innerWidth
+    },
+    link() {
+      return window.location.href
     }
   }
 }
 </script>
 
 <style scoped>
-/*TODO: adaptive for mobile*/
-
 .wrapper {
   position: relative;
   display: flex;
@@ -269,5 +288,13 @@ export default {
 .menu__modal {
   padding: .3em;
   border-left: 2px solid var(--dark);
+}
+.menu__button_group {
+  display: grid;
+  grid-gap: 1em;
+}
+
+#link {
+  display: none;
 }
 </style>
