@@ -43,9 +43,7 @@
     </div>
   </div>
 
-  <textarea id="link">
-    {{ link }}
-  </textarea>
+  <textarea id="link">{{ link }}</textarea>
 
   <audio @canplaythrough="audio.ready = true" id="player">
     <source src="../assets/music/genius_verified.mp3" type="audio/mp3">
