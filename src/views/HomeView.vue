@@ -20,9 +20,4 @@ export default {
   align-items: center;
   min-height: 90vh;
 }
-.form {
-  display: grid;
-  grid-gap: 1em;
-  padding: 1em 2em;
-}
 </style>
