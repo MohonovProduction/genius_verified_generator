@@ -20,11 +20,19 @@ export default {
   border: 2px solid var(--dark);
   transition: all .1s ease-in-out;
 }
-
 .button:hover {
   cursor: pointer;
   background-color: var(--dark);
   color: var(--white);
+}
+.button:active {
+  animation: spring .3s ease-in-out;
+}
+
+@keyframes spring {
+  0% { transform: scale(1) }
+  50% { transform: scale(.95) }
+  100% { transform: scale(1) }
 }
 
 </style>

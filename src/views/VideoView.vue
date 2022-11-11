@@ -29,14 +29,14 @@
         v-if="menu.showAfter"
         class="menu menu_after"
       >
-        <m-button @click="play">Repeat</m-button>
-        <m-button @click="play">Edit</m-button>
-        <m-button @click="play">Create</m-button>
+        <m-button @click="repeat">Repeat</m-button>
+        <m-button @click="edit">Edit</m-button>
+        <m-button @click="create">Create</m-button>
       </menu>
     </div>
   </div>
 
-  <audio id="player">
+  <audio @canplaythrough="audio.ready = true" id="player">
     <source src="../assets/music/genius_verified.mp3" type="audio/mp3">
   </audio>
 </template>
@@ -54,37 +54,48 @@ export default {
       },
       video: {
         translate: -105, //-105vw,
-        transitionDuration: 0.8
+        transitionDuration: 0.8,
+      },
+      audio: {
+        ready: false
       }
     }
   },
   methods: {
     play() {
-      setTimeout(() => {
-        this.menu.showBefore = false
-        this.menu.showAfter = true
-      }, 2000)
+      this.video.translate = -105
 
       const audio = document.querySelector('#player')
-      audio.play()
-      const delay = [1000, 1300, 2500, 2200]
+      audio.play().then(() => {
+        setTimeout(() => {
+          this.menu.showBefore = false
+          this.menu.showAfter = true
+        }, 2000)
+        setTimeout(() => {
+          this.video.translate = 0
+        }, 1000)
+        setTimeout(() => {
+          this.video.translate = 105
+        }, 2300)
+        setTimeout(() => {
+          this.video.transitionDuration = 0.5
+          this.video.translate = 160
+        }, 4800)
+        setTimeout(() => {
+          this.video.transitionDuration = 0.3
+          this.video.translate = 265
+        }, 7250)
+      })
+    },
+    repeat() {
+      window.location.reload()
+    },
+    edit() {
 
-      setTimeout(() => {
-        this.video.translate = 0
-      }, 1000)
+    },
+    create() {
 
-      setTimeout(() => {
-        this.video.translate = 105
-      }, 2300)
-      setTimeout(() => {
-        this.video.transitionDuration = 0.5
-        this.video.translate = 160
-      }, 4800)
-      setTimeout(() => {
-        this.video.transitionDuration = 0.3
-        this.video.translate = 265
-      }, 7000)
-    }
+    },
   },
   computed: {
     name() {
@@ -98,6 +109,8 @@ export default {
 </script>
 
 <style scoped>
+/*TODO: adaptive for mobile*/
+
 .wrapper {
   position: relative;
   display: flex;
@@ -219,5 +232,7 @@ export default {
   justify-content: center;
 }
 .menu {
+  display: grid;
+  grid-gap: 1em;
 }
 </style>
