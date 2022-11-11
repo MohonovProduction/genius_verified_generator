@@ -76,7 +76,9 @@ export default {
     play() {
       this.video.translate = -105
 
+      //TODO: Refactor with references
       const audio = document.querySelector('#player')
+
       audio.play().then(() => {
         setTimeout(() => {
           this.menu.showBefore = false
@@ -112,6 +114,7 @@ export default {
       router.push('/')
     },
     copyLink() {
+      //TODO: Refactor with references
       const textarea = document.querySelector('#link')
 
       textarea.focus()
