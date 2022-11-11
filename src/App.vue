@@ -28,6 +28,8 @@
   --white: hsl(0, 0%, 100%);
 
   color: var(--dark);
+
+  overflow: hidden;
 }
 
 *,

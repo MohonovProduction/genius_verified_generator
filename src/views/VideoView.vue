@@ -35,7 +35,7 @@
         v-if="menu.showAfter"
         class="menu menu_after"
       >
-        <m-button @click="repeat">⭯ Repeat</m-button>
+        <m-button @click="repeat">Repeat</m-button>
         <m-button @click="edit">Edit</m-button>
         <m-button @click="create">Create</m-button>
         <m-button @click="copyLink">Copy link</m-button>
@@ -120,8 +120,8 @@ export default {
       textarea.select()
       textarea.setSelectionRange(0, 99999)
 
-      navigator.clipboard.writeText(textarea.textContent)
       document.execCommand('copy')
+      //navigator.clipboard.writeText(textarea.textContent)
     }
   },
   computed: {
@@ -295,6 +295,7 @@ export default {
 }
 
 #link {
-  display: none;
+  opacity: 0;
+  position: fixed;
 }
 </style>
