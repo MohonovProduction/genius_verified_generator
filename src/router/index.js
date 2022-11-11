@@ -7,6 +7,11 @@ const routes = [
     component: () => import('@/views/HomeView')
   },
   {
+    path: '/edit/:name/:question/:photo',
+    name: 'edit',
+    component: () => import('@/views/EditView')
+  },
+  {
     path: '/video/:name/:question/:photo',
     name: 'video',
     component: () => import('@/views/VideoView')

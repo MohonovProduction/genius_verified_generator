@@ -1,14 +1,18 @@
 <template>
   <div class="wrapper">
-    <video-form />
+    <video-form
+      :name="$route.params.name"
+      :question="$route.params.question"
+      :photo="$route.params.photo"
+    />
   </div>
 </template>
 
 <script>
-import VideoForm from '@/components/VideoForm'
+import VideoForm from '@/components/VideoForm';
 
 export default {
-  name: 'HomeView',
+  name: "EditView",
   components: { VideoForm }
 }
 </script>
@@ -19,10 +23,5 @@ export default {
   justify-content: center;
   align-items: center;
   min-height: 90vh;
-}
-.form {
-  display: grid;
-  grid-gap: 1em;
-  padding: 1em 2em;
 }
 </style>
