@@ -94,7 +94,10 @@ export default {
       })
     },
     repeat() {
-      window.location.reload()
+      router.push({
+        name: 'video',
+        params: this.$route.params
+      })
     },
     edit() {
       router.push({
