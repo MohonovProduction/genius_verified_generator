@@ -95,7 +95,7 @@ export default {
 
     },
     create() {
-
+      router.push('/')
     },
   },
   computed: {
