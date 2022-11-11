@@ -119,7 +119,6 @@ export default {
       textarea.focus()
       textarea.select()
       textarea.setSelectionRange(0, 99999)
-
       document.execCommand('copy')
       //navigator.clipboard.writeText(textarea.textContent)
     }
