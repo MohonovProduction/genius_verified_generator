@@ -23,6 +23,9 @@
         class="menu menu_before"
       >
         <m-button @click="play">ᐅ Play</m-button>
+        <article class="menu__modal" v-if="isMobile">
+          You can rotate your device for better experience
+        </article>
       </menu>
 
       <menu
@@ -55,7 +58,7 @@ export default {
         showAfter: false,
       },
       video: {
-        translate: -105, //-105vw,
+        translate:  -105,
         transitionDuration: 0.8,
       },
       audio: {
@@ -109,6 +112,9 @@ export default {
     },
     question() {
       return this.$route.params.question.split(' ')
+    },
+    isMobile() {
+      return window.innerHeight > window.innerWidth
     }
   }
 }
@@ -143,14 +149,28 @@ export default {
   line-height: .80em;
   text-transform: uppercase;
 }
+
+@media (max-width: 600px) {
+  .block {
+    font-size: 2rem;
+  }
+}
+
 .block_heading {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 7rem;
+  font-size: 7em;
   background-color: var(--white);
   --border-color: var(--white);
 }
+
+@media (max-width: 600px) {
+  .block_heading {
+    font-size: 5em;
+  }
+}
+
 .block_name,
 .block_question {
   padding: 1em;
@@ -241,5 +261,13 @@ export default {
 .menu {
   display: grid;
   grid-gap: 1em;
+  padding: 2em;
+}
+.menu_before {
+  justify-items: center;
+}
+.menu__modal {
+  padding: .3em;
+  border-left: 2px solid var(--dark);
 }
 </style>
