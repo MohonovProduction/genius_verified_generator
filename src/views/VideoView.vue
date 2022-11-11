@@ -71,6 +71,7 @@ export default {
           this.menu.showBefore = false
           this.menu.showAfter = true
         }, 2000)
+
         setTimeout(() => {
           this.video.translate = 0
         }, 1000)
@@ -78,7 +79,7 @@ export default {
           this.video.translate = 105
         }, 2300)
         setTimeout(() => {
-          this.video.transitionDuration = 0.5
+          this.video.transitionDuration = 0.8
           this.video.translate = 160
         }, 4800)
         setTimeout(() => {
